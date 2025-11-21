@@ -15,23 +15,23 @@ export const StartStep: React.FC<Props> = ({ step }) => {
   useImagePreload(step.id);
 
   return (
-    <div className="relative flex flex-col items-center justify-end min-h-screen px-6 py-12 text-center">
+    <div className="relative flex flex-col items-center justify-end px-6 py-12 pt-[10vh] text-center">
       {/* Background Image using Next.js Image for optimization */}
       {step.backgroundImage && (
         <Image
           src={step.backgroundImage}
           alt="Scene background"
           fill
-          className="object-cover"
+          className="object-cover animate-fade-in-bg"
           priority
           quality={90}
         />
       )}
       {/* Stronger gradient overlay for text readability - more concentrated at bottom */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 via-black/50 to-transparent" />
       
-      {/* Content container with fade-in animation */}
-      <div className="relative z-10 max-w-2xl mx-auto space-y-8 animate-fade-in-content">
+      {/* Content container - immediately visible */}
+      <div className="relative z-10 max-w-2xl mx-auto space-y-8">
         {/* Header / Title - Using a serif font with white text for contrast */}
         <h1 
           className="text-5xl md:text-6xl font-serif font-bold text-white mb-6 leading-tight"

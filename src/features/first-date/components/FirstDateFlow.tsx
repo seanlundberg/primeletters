@@ -11,7 +11,7 @@ export const FirstDateFlow: React.FC = () => {
 
   if (!currentStep) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-amber-50">
+      <div className="flex items-center justify-center bg-amber-50">
         <div className="text-center">
           <p className="text-2xl text-gray-600">Loading your story...</p>
         </div>
@@ -20,7 +20,7 @@ export const FirstDateFlow: React.FC = () => {
   }
 
   return (
-    <main className="min-h-screen">
+    <main className="">
         {currentStep.type === 'start' && <StartStep step={currentStep} />}
         {currentStep.type === 'choice' && <ChoiceStep step={currentStep} />}
         {currentStep.type === 'info' && <InfoStep step={currentStep} />}

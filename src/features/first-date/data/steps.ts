@@ -186,5 +186,6 @@ export const firstDateSteps: StoryStep[] = [
     content: "The evening stretches ahead of you, full of promise and possibility. Where will this drive take you? What will happen when you arrive at your destination? The story of your perfect date is just beginning...",
     buttonText: 'Coming Soon',
     nextStepId: 'chapter-end',
+backgroundImage: '/backgrounds/cologne-reaction.jpg',
   },
 ];

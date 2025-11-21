@@ -16,7 +16,7 @@ export const InfoStep: React.FC<Props> = ({ step }) => {
 
   return (
     <div 
-      className="relative flex flex-col items-center justify-end min-h-screen px-6 py-12 text-center"
+      className="relative flex flex-col items-center justify-end px-6 py-12 pt-[10vh] text-center"
       style={{
         backgroundColor: step.backgroundImage ? 'transparent' : '#FFF8F0',
       }}
@@ -27,18 +27,18 @@ export const InfoStep: React.FC<Props> = ({ step }) => {
           src={step.backgroundImage}
           alt="Scene background"
           fill
-          className="object-cover"
+          className="object-cover animate-fade-in-bg"
           priority
           quality={90}
         />
       )}
       {/* Gradient overlay for text readability - only if there's a background image */}
       {step.backgroundImage && (
-        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 via-black/50 to-transparent" />
       )}
       
-      {/* Content container with fade-in animation */}
-      <div className="relative z-10 max-w-2xl mx-auto space-y-8 animate-fade-in-content">
+      {/* Content container - immediately visible */}
+      <div className="relative z-10 max-w-2xl mx-auto space-y-8">
         {/* Optional Title */}
         {step.title && (
           <h2 
