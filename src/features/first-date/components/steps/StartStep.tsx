@@ -11,7 +11,7 @@ export const StartStep: React.FC<Props> = ({ step }) => {
   const { goToNextStep } = useFirstDate();
 
   return (
-    <div className="relative flex flex-col items-center justify-end px-6 py-12 pt-[10vh] text-center">
+    <div className="relative flex flex-col items-center justify-end min-h-screen px-6 py-12 text-center">
       {/* Background Image using Next.js Image for optimization */}
       {step.backgroundImage && (
         <Image

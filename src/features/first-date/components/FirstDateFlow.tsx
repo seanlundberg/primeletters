@@ -11,19 +11,24 @@ export const FirstDateFlow: React.FC = () => {
 
   if (!currentStep) {
     return (
-      <div className="flex items-center justify-center bg-amber-50">
-        <div className="text-center">
-          <p className="text-2xl text-gray-600">Loading your story...</p>
+      <main className="min-h-screen bg-black flex items-center justify-center">
+        <div className="w-full max-w-[600px] min-h-screen bg-black flex items-center justify-center">
+          <div className="text-center">
+            <p className="text-2xl text-white">Loading your story...</p>
+          </div>
         </div>
-      </div>
+      </main>
     );
   }
 
   return (
-    <main className="">
+    <main className="min-h-screen bg-black flex items-center justify-center">
+      {/* Mobile-like container for desktop */}
+      <div className="w-full max-w-[600px] min-h-screen bg-black relative shadow-2xl">
         {currentStep.type === 'start' && <StartStep step={currentStep} />}
         {currentStep.type === 'choice' && <ChoiceStep step={currentStep} />}
         {currentStep.type === 'info' && <InfoStep step={currentStep} />}
+      </div>
     </main>
   );
 };
