@@ -12,7 +12,7 @@ export const InfoStep: React.FC<Props> = ({ step }) => {
 
   return (
     <div 
-      className="relative flex flex-col items-center justify-end min-h-screen px-6 py-12  text-center"
+      className="relative flex flex-col items-center justify-end min-h-[100dvh] px-6 py-12 pb-20 text-center"
       style={{
         backgroundColor: step.backgroundImage ? 'transparent' : '#FFF8F0',
       }}

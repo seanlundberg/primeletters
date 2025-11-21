@@ -15,7 +15,7 @@ export const ChoiceStep: React.FC<Props> = ({ step }) => {
   };
 
   return (
-    <div className="relative flex flex-col items-center justify-end min-h-screen px-6 py-12 text-center">
+    <div className="relative flex flex-col items-center justify-end min-h-[100dvh] px-6 py-12 pb-20 text-center">
       {/* Background Image using Next.js Image for optimization */}
       {step.backgroundImage && (
         <Image
