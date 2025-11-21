@@ -1,0 +1,12 @@
+---
+alwaysApply: true
+---
+
+- Maintain strict DRY, its important to create a scalable infrastructure, while not over-engineering.
+- Maintain strict KISS.
+- APP folder should only be for routing logic. Utils, hooks, lib, and so on lives in the SRC folder. NOT the APP router.
+- Components go in the /src directory, NOT in App folder.
+- For design, I need you to always consider that this application is for people who are 65+, and so large, accessible, easy to use and abundantly clear design is absolutely neccessary.
+- Furthermore, for design, this is a "romantic" type of app, and the style that we fade things in, selective uses of cursives, fonts, colors, can really help drive home the feeling that we want to accomplish.
+- For continual hygeine, you must always ask yourself, "wait - can do I this a better way?", or "wait - can this content be written in a better way?", and so forth
+- 
