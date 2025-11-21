@@ -14,35 +14,35 @@ export const StartStep: React.FC<Props> = ({ step }) => {
       {/* Background Image using native img */}
       {step.backgroundImage && (
         <img
-          key={step.id}
+          key={`${step.id}-bg`}
           src={step.backgroundImage}
           alt="Scene background"
           className="absolute inset-0 w-full h-full object-cover animate-fade-in-bg"
         />
       )}
-      {/* Stronger gradient overlay for text readability - more concentrated at bottom */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 via-black/50 to-transparent" />
+      {/* Gradient overlay - fades in AFTER background for text readability */}
+      <div key={`${step.id}-gradient`} className="absolute inset-0 bg-gradient-to-t from-black via-black/80 via-black/50 to-transparent animate-fade-in-gradient" />
       
-      {/* Content container - immediately visible */}
-      <div className="relative z-10 max-w-2xl mx-auto space-y-8">
-        {/* Header / Title - Using a serif font with white text for contrast */}
+      {/* Content container - staggered animations */}
+      <div key={`${step.id}-content`} className="relative z-10 max-w-2xl mx-auto space-y-8">
+        {/* Header / Title - Slides up after gradient */}
         <h1 
-          className="text-5xl md:text-6xl font-serif font-bold text-white mb-6 leading-tight"
+          className="text-5xl md:text-6xl font-serif font-bold text-white mb-6 leading-tight animate-slide-up animate-delay-1600"
           style={{ textShadow: '0 4px 12px rgba(0, 0, 0, 0.8), 0 2px 4px rgba(0, 0, 0, 0.9)' }}
         >
           {step.title}
         </h1>
 
-        {/* Descriptive Text - Large and readable with white text */}
+        {/* Descriptive Text - Slides up second */}
         <p 
-          className="text-2xl md:text-3xl text-white leading-relaxed font-light"
+          className="text-2xl md:text-3xl text-white leading-relaxed font-light animate-slide-up animate-delay-1700"
           style={{ textShadow: '0 3px 8px rgba(0, 0, 0, 0.7), 0 1px 3px rgba(0, 0, 0, 0.8)' }}
         >
           {step.description}
         </p>
 
-        {/* Action Button - High contrast, large touch target */}
-        <div className="pt-8">
+        {/* Action Button - Slides up last */}
+        <div className="pt-8 animate-slide-up animate-delay-1800">
           <button
             onClick={() => goToNextStep(step.nextStepId)}
             className="px-10 py-5 bg-rose-600 text-white text-2xl font-semibold rounded-full shadow-2xl hover:bg-rose-700 transition-transform transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-rose-300"

@@ -58,6 +58,9 @@ export function FirstDateProvider({ children, initialStepId = 'start' }: FirstDa
   // Just update state - no route changes!
   const goToNextStep = (nextStepId: string) => {
     dispatch({ type: 'SET_STEP', payload: { stepId: nextStepId } });
+    
+    // Smooth scroll to top for new step
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const submitAnswer = (stepId: string, optionId: string, nextStepId: string) => {

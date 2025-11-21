@@ -18,32 +18,32 @@ export const ChoiceStep: React.FC<Props> = ({ step }) => {
       {/* Background Image using native img */}
       {step.backgroundImage && (
         <img
-          key={step.id}
+          key={`${step.id}-bg`}
           src={step.backgroundImage}
           alt="Scene background"
           className="absolute inset-0 w-full h-full object-cover animate-fade-in-bg"
         />
       )}
-      {/* Stronger gradient overlay for text readability */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 via-black/50 to-transparent" />
+      {/* Gradient overlay - fades in AFTER background */}
+      <div key={`${step.id}-gradient`} className="absolute inset-0 bg-gradient-to-t from-black via-black/80 via-black/50 to-transparent animate-fade-in-gradient" />
       
-      {/* Content container - immediately visible */}
-      <div className="relative z-10 max-w-2xl mx-auto space-y-8">
-        {/* Question Text - Large and readable */}
+      {/* Content container - staggered animations */}
+      <div key={`${step.id}-content`} className="relative z-10 max-w-2xl mx-auto space-y-8">
+        {/* Question Text - Slides up after gradient */}
         <h2 
-          className="text-3xl md:text-4xl font-serif text-white mb-8 leading-relaxed"
+          className="text-3xl md:text-4xl font-serif text-white mb-8 leading-relaxed animate-slide-up animate-delay-1600"
           style={{ textShadow: '0 4px 12px rgba(0, 0, 0, 0.8), 0 2px 4px rgba(0, 0, 0, 0.9)' }}
         >
           {step.question}
         </h2>
 
-        {/* Choice Buttons - Large, accessible, easy to tap */}
+        {/* Choice Buttons - Slide up one by one with staggered delays */}
         <div className="space-y-4">
-          {step.options.map((option) => (
+          {step.options.map((option, index) => (
             <button
               key={option.id}
               onClick={() => handleChoice(option.id, option.nextStepId)}
-              className="w-full px-8 py-5 bg-white/95 hover:bg-white text-gray-900 text-xl md:text-2xl font-light rounded-2xl shadow-2xl hover:shadow-rose-200/50 transition-all transform hover:scale-[1.02] focus:outline-none focus:ring-4 focus:ring-rose-300 backdrop-blur-sm"
+              className={`w-full px-8 py-5 bg-white/95 hover:bg-white text-gray-900 text-xl md:text-2xl font-light rounded-2xl shadow-2xl hover:shadow-rose-200/50 transition-all transform hover:scale-[1.02] focus:outline-none focus:ring-4 focus:ring-rose-300 backdrop-blur-sm animate-slide-up animate-delay-${1700 + (index * 100)}`}
               aria-label={option.text}
             >
               {option.text}
