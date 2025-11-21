@@ -5,6 +5,7 @@ import { useFirstDate } from '../context/FirstDateContext';
 import { StartStep } from './steps/StartStep';
 import { ChoiceStep } from './steps/ChoiceStep';
 import { InfoStep } from './steps/InfoStep';
+import { ImagePreloader } from './ImagePreloader';
 
 export const FirstDateFlow: React.FC = () => {
   const { currentStep } = useFirstDate();
@@ -28,6 +29,9 @@ export const FirstDateFlow: React.FC = () => {
         {currentStep.type === 'start' && <StartStep step={currentStep} />}
         {currentStep.type === 'choice' && <ChoiceStep step={currentStep} />}
         {currentStep.type === 'info' && <InfoStep step={currentStep} />}
+        
+        {/* Progressively preload all images in background (excludes current) */}
+        <ImagePreloader currentStepId={currentStep.id} />
       </div>
     </main>
   );

@@ -1,5 +1,4 @@
 import React from 'react';
-import Image from 'next/image';
 import { ChoiceStep as ChoiceStepType } from '../../types';
 import { useFirstDate } from '../../context/FirstDateContext';
 
@@ -16,15 +15,13 @@ export const ChoiceStep: React.FC<Props> = ({ step }) => {
 
   return (
     <div className="relative flex flex-col items-center justify-end min-h-[100dvh] px-6 py-12 pb-20 text-center">
-      {/* Background Image using Next.js Image for optimization */}
+      {/* Background Image using native img */}
       {step.backgroundImage && (
-        <Image
+        <img
+          key={step.id}
           src={step.backgroundImage}
           alt="Scene background"
-          fill
-          className="object-cover animate-fade-in-bg"
-          priority
-          quality={90}
+          className="absolute inset-0 w-full h-full object-cover animate-fade-in-bg"
         />
       )}
       {/* Stronger gradient overlay for text readability */}

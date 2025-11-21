@@ -1,5 +1,4 @@
 import React from 'react';
-import Image from 'next/image';
 import { InfoStep as InfoStepType } from '../../types';
 import { useFirstDate } from '../../context/FirstDateContext';
 
@@ -17,15 +16,13 @@ export const InfoStep: React.FC<Props> = ({ step }) => {
         backgroundColor: step.backgroundImage ? 'transparent' : '#FFF8F0',
       }}
     >
-      {/* Background Image using Next.js Image for optimization */}
+      {/* Background Image using native img */}
       {step.backgroundImage && (
-        <Image
+        <img
+          key={step.id}
           src={step.backgroundImage}
           alt="Scene background"
-          fill
-          className="object-cover animate-fade-in-bg"
-          priority
-          quality={90}
+          className="absolute inset-0 w-full h-full object-cover animate-fade-in-bg"
         />
       )}
       {/* Gradient overlay for text readability - only if there's a background image */}
