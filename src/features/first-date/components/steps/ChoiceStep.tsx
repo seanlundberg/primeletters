@@ -2,7 +2,6 @@ import React from 'react';
 import Image from 'next/image';
 import { ChoiceStep as ChoiceStepType } from '../../types';
 import { useFirstDate } from '../../context/FirstDateContext';
-import { useImagePreload } from '../../hooks/useImagePreload';
 
 interface Props {
   step: ChoiceStepType;
@@ -10,9 +9,6 @@ interface Props {
 
 export const ChoiceStep: React.FC<Props> = ({ step }) => {
   const { submitAnswer } = useFirstDate();
-  
-  // Preload next step images
-  useImagePreload(step.id);
 
   const handleChoice = (optionId: string, nextStepId: string) => {
     submitAnswer(step.id, optionId, nextStepId);

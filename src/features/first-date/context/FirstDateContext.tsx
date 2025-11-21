@@ -1,7 +1,6 @@
 'use client';
 
-import React, { createContext, useContext, useReducer, ReactNode, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
+import React, { createContext, useContext, useReducer, ReactNode } from 'react';
 import { FirstDateState, StoryStep } from '../types';
 import { firstDateSteps } from '../data/steps';
 
@@ -48,25 +47,17 @@ interface FirstDateProviderProps {
 }
 
 export function FirstDateProvider({ children, initialStepId = 'start' }: FirstDateProviderProps) {
-  const router = useRouter();
   const [state, dispatch] = useReducer(firstDateReducer, {
     currentStepId: initialStepId,
     history: [],
     answers: {},
   });
 
-  // Sync state with URL on mount
-  useEffect(() => {
-    if (initialStepId !== state.currentStepId) {
-      dispatch({ type: 'SET_STEP', payload: { stepId: initialStepId } });
-    }
-  }, [initialStepId]);
-
   const currentStep = firstDateSteps.find((s) => s.id === state.currentStepId);
 
+  // Just update state - no route changes!
   const goToNextStep = (nextStepId: string) => {
     dispatch({ type: 'SET_STEP', payload: { stepId: nextStepId } });
-    router.push(`/first-date/${nextStepId}`);
   };
 
   const submitAnswer = (stepId: string, optionId: string, nextStepId: string) => {

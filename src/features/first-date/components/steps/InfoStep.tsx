@@ -2,7 +2,6 @@ import React from 'react';
 import Image from 'next/image';
 import { InfoStep as InfoStepType } from '../../types';
 import { useFirstDate } from '../../context/FirstDateContext';
-import { useImagePreload } from '../../hooks/useImagePreload';
 
 interface Props {
   step: InfoStepType;
@@ -10,9 +9,6 @@ interface Props {
 
 export const InfoStep: React.FC<Props> = ({ step }) => {
   const { goToNextStep } = useFirstDate();
-  
-  // Preload next step image
-  useImagePreload(step.id);
 
   return (
     <div 

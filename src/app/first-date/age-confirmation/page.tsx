@@ -76,7 +76,7 @@ export default function AgeConfirmation() {
           {/* Action buttons */}
           <div className="flex flex-col md:flex-row gap-4 md:gap-6 justify-center items-center pt-4 md:pt-6">
             <Link 
-              href="/first-date/start"
+              href="/first-date"
               className="px-12 py-5 md:py-7 bg-rose-600 text-white text-xl md:text-3xl font-bold rounded-full hover:bg-rose-700 hover:scale-105 transition-all duration-300 w-full md:w-auto min-w-[260px] border-4 border-rose-300/40"
               style={{
                 boxShadow: '0 10px 40px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,255,255,0.2)'

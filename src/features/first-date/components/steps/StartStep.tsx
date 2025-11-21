@@ -2,7 +2,6 @@ import React from 'react';
 import Image from 'next/image';
 import { StartStep as StartStepType } from '../../types';
 import { useFirstDate } from '../../context/FirstDateContext';
-import { useImagePreload } from '../../hooks/useImagePreload';
 
 interface Props {
   step: StartStepType;
@@ -10,9 +9,6 @@ interface Props {
 
 export const StartStep: React.FC<Props> = ({ step }) => {
   const { goToNextStep } = useFirstDate();
-  
-  // Preload next step image
-  useImagePreload(step.id);
 
   return (
     <div className="relative flex flex-col items-center justify-end px-6 py-12 pt-[10vh] text-center">
